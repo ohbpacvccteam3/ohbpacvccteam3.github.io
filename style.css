@@ -13,6 +13,10 @@ nav{ /* Formats the nav */
     font-size: 5vw;
 }
 
+.no-border{
+	border: none;
+}
+
     /* Elements */
 .element-border{ /* Sets a red border around an element */
     border: 2px solid #550000;
@@ -22,8 +26,12 @@ nav{ /* Formats the nav */
     box-shadow: 0px 0px 5px 10px #550000;
 }
 
-.element-top-margin{ /* Creates a small top and bottom margin for element */
+.element-top-margin{ /* Creates a small top margin for element */
     margin-top: 2%;
+}
+
+.element-bottom-margin{ /* Creates a small bottom margin for element */
+	margin-bottom: 2%;
 }
 
 .inner-element-top-margin{ /* Creates a medium top margin for elements within other elements */
@@ -44,10 +52,9 @@ nav{ /* Formats the nav */
     text-decoration: underline;
 }
 
-/* About Page Style Rules */
-
-.about-name{ /* Sets top margin for the member names on the about page */
-    margin-top: 2%;
+	/* Buttons */
+.btn:hover{ /* Sets buttons to a lighter shade upon hover */
+	background-color: #770000;
 }
 
 /* Index Page Style Rules */
@@ -56,6 +63,11 @@ nav{ /* Formats the nav */
     background-size: cover;
     height: 60vh;
     line-height: 60vh;
+}
+
+/* About Page Style Rules */
+.about-name{ /* Sets top margin for the member names on the about page */
+    margin-top: 2%;
 }
 
 /* Footer Style Rules */

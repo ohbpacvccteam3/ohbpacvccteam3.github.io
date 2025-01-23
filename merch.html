@@ -3,9 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Template Page</title>
+		<title>Merchandise | Stage Fright</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 		<link rel="stylesheet" href="style.css">
+		<script src="scripts/merchandise.js" defer></script>
 	</head>
 	<body>
 		<div class="container-fluid px-0 text-white main-div">
@@ -30,8 +32,49 @@
 				</div>
 			</nav>
 			
+			<header>
+				<h1 class="text-center page-header red">Merchandise</h1>
+			</header>
+			
 			<main class="container-fluid">
-				<h1>Skibidi Toilet Rizz!</h1>
+				<div class="row justify-content-around">
+					<div class="col-md-8 element-shadow py-1">
+						<p>Premium American-Made Apparel, Instruments, and Decorations.</p>
+					</div>
+					<div class="col-md-2 dropdown p-0">
+						<button class="btn btn-danger dropdown-toggle w-100 h-100 background-red no-border" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Filters
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<input type="checkbox" id="sweatshirt-filter" name="sweatshirt" value="sweatshirt" class="dropdown-button mx-3 filter">
+								<label for="sweatshirt-filter">Sweatshirts</label>
+							</li>
+							<li>
+								<input type="checkbox" id="t-shirt-filter" name="t-shirt" value="t-shirt" class="dropdown-button mx-3 filter">
+								<label for="t-shirt-filter">T-Shirts</label>
+							</li>
+							<li>
+								<input type="checkbox" id="hat-filter" name="hat" value="hat" class="dropdown-button mx-3 filter">
+								<label for="hat-filter">Hats</label>
+							</li>
+							<li>
+								<input type="checkbox" id="instrument-filter" name="instrument" value="instrument" class="dropdown-button mx-3 filter">
+								<label for="instrument-filter">Instruments</label>
+							</li>
+							<li>
+								<input type="checkbox" id="bag-filter" name="bag" value="bag" class="dropdown-button mx-3 filter">
+								<label for="bag-filter">Bags</label>
+							</li>
+						 </ul>
+					</div>
+				</div>
+				
+				<div class="container">
+					<div class="row justify-content-left element-top-margin element-bottom-margin" id="shop">
+						
+					</div>
+				</div>
 			</main>
 
 			<footer class="text-center p-3">
