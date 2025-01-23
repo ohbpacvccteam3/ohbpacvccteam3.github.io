@@ -1,19 +1,23 @@
 /* General Style Rules */
 .main-div{ /* Formats the div that makes up the main body of each page */
     background: #0c0f0d;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 nav{ /* Formats the nav */
-    background: #080a09;
-    border-bottom: 3px solid #000;
+    background: rgba(0, 0, 0, 0.726);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #4e4e4e;
 }
 
 .page-header{ /* Formats the header/title at the top of each page */
     font-family: Georgia, Arial, sans-serif;
-    font-size: 5vw;
+    /* margin-top: 2em; */
 }
 
-.no-border{
+.no-border{ /* Removes border around an element */
 	border: none;
 }
 
@@ -57,12 +61,29 @@ nav{ /* Formats the nav */
 	background-color: #770000;
 }
 
+/*Sets font color of nav link to white and apply transition effects*/
+.navbar-nav li a
+{
+    color: #ffffff;
+    font-weight: normal;
+    transition: color 0.2s, font-weight 0.2s, font-size 0.2s;
+}
+
+/*nav links turn red when hovered and transition effects are applied*/
+.navbar-nav li a:hover
+{
+    color: #770000;
+    font-weight: 900;
+    font-size: 1.01em;
+}
+
 /* Index Page Style Rules */
 .hero{ /* Creates and formats the hero image on the page */
     background: url(images/hero-image.jpg) center padding-box;
     background-size: cover;
     height: 60vh;
     line-height: 60vh;
+    padding-top: 3em;
 }
 
 /* About Page Style Rules */
@@ -70,11 +91,87 @@ nav{ /* Formats the nav */
     margin-top: 2%;
 }
 
+/* Contact Page Style Rules */
+.event-color{
+    color: white;
+}
+
+.event-color:hover{
+    background-color: #770000;
+    color: white;
+}
+
+.event-tab{
+    display: none;
+}
+
+.event-tab:hover{
+    background-color: #770000;
+}
+
+
+
 /* Footer Style Rules */
 footer { /* Sets footer background color */
     background: #080a09;
+    margin-top: auto;
 }
 
 footer p { /* Sets footer text margins to 0 */
     margin: 0;
+}
+
+/*Modal styling*/
+.modal-content
+{
+    border-color: rgb(34, 34, 34);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 40px;
+}
+
+.modal-header
+{
+    color: white;
+    border: none;
+}
+
+.modal-body
+{
+    border: none;
+}
+
+.mb-3 input
+{
+    background-color: #c0c0c081;
+    backdrop-filter: blur(8px);
+    border-radius: 40px;
+    border: none;
+}
+
+.mb-3 input 
+{
+    color: black;
+}
+
+.mb-3 input:focus
+{
+    background-color: #ffffff;
+    backdrop-filter: blur(8px);
+    border-radius: 40px;
+    border: none;
+    box-shadow: 0 0 40px 4px  rgba(255, 255, 255, 0.589);
+
+}
+
+
+.modal-footer
+{
+    border: none;
+}
+
+.modal-footer button
+{
+    border-radius: 40px;
+    border: none;
 }
