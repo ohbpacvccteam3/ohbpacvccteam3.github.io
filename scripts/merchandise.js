@@ -19,6 +19,7 @@ let merchandise = [
 					[16,"Coasters","images/coasters.png","miscellaneous","Coasters with the band logo",9.99]
 ];
 
+/* Variable declarations */
 let shopSection = document.getElementById("shop");
 let filters = document.getElementsByClassName("filter");
 let cartButtons = document.getElementsByClassName("cart-button");
@@ -26,44 +27,57 @@ let cart = new Array();
 const TAX_RATE = 0.08;
 window.addEventListener("load", startup);
 document.getElementById("see-cart").addEventListener("click", returnCart);
-document.getElementById("clear").addEventListener("click", clearFilters);
 
+
+/* Code that runs upon page load */
 function startup() {
+	/* Loads all shop items */
 	for (let i=0; i<merchandise.length; i++) {
 		addItemToShop(createItem(merchandise[i][2], merchandise[i][4], merchandise[i][5], merchandise[i][1], merchandise[i][0]));
 	}
+
+	/* Provides funcitonality to filters */
 	for (let i=0; i<filters.length; i++) {
 		filters[i].addEventListener("change", applyFilter);
 	}
+	document.getElementById("clear").addEventListener("click", clearFilters);
+
+	/* Provides funcitonality to the cart button on each item */
 	for (let i=0; i<cartButtons.length; i++) {
 		createCartEventListeners(cartButtons[i], i);
 	}
 }
 
+/* Provides functionality to cart buttons on every item */
 function createCartEventListeners(cartButton, itemID) {	
 	cartButton.addEventListener("click", addItemToCart.bind(null, itemID));
 }
 
+/* Creates an item in the shop) */
 function createItem(itemImage, itemDescription, itemPrice, itemName, itemID) {
 	let item = "<div class='col-md-3 text-center element-top-margin'>";
 	item += "<img src='" + itemImage + "' alt='" + itemDescription + "' class='w-100'>";
 	item += "<div class='row justify-content-around'>";
-	item += "<p class='col-sm-8 m-0 p-1 element-top-margin'>" + itemName +": $" + itemPrice + "</p>";
+	item += "<p class='col-sm-8 m-0 p-1 element-top-margin shop-text'>" + itemName +": $" + itemPrice + "</p>";
 	item += "<div class='btn btn-danger background-red no-border text-white element-top-margin col-sm-3 cart-button' id='" + itemID + "'><i class='bi bi-cart2'></i></div>";
 	item += "</div>";
 	item += "</div>";
 	return item;
 }
 
+/* Adds an item to the shop */
 function addItemToShop(item) {
 	shopSection.insertAdjacentHTML("beforeEnd", item);
 }
 
+/* Applies content filters to shop items */
 function applyFilter() {
 	document.getElementById("see-cart").style.display = "block";
 	shopSection.innerHTML = "";
 	let checkedFilters = 0;
 	let usedItemIDs = new Array();
+
+	/* Applies filters to shop items */
 	for (let i=0; i<filters.length; i++) {
 		if (filters[i].checked) {
 			for (let j=0; j<merchandise.length; j++) {
@@ -75,18 +89,25 @@ function applyFilter() {
 			checkedFilters++;
 		}
 	}
+
+	/* Loads full page if no filters are applied */
 	if (checkedFilters === 0) {
 		for (let i=0; i<merchandise.length; i++) {
 			addItemToShop(createItem(merchandise[i][2], merchandise[i][4], merchandise[i][5], merchandise[i][1], merchandise[i][0]));
 			usedItemIDs.push(merchandise[i][0]);
 		}
 	}
+
+	/* Provides functionality for each cart button */
 	for (let i=0; i<usedItemIDs.length; i++) {
 		createCartEventListeners(cartButtons[i], usedItemIDs[i]);
 	}
+
+	/* Hides the checkout button */
 	document.getElementById("checkout").style.display = "none";
 }
 
+/* Clears all applied filters */
 function clearFilters() {
 	for (let i=0; i<filters.length; i++) {
 		filters[i].checked = false;
@@ -94,25 +115,30 @@ function clearFilters() {
 	applyFilter();
 }
 
+/* Adds an item to the cart */
 function addItemToCart(itemID) {
 	cart.push(Number(itemID));
 	console.log(itemID);
 }
 
+/* Creates and formats the cart when the button is pressed */
 function returnCart() {
 	let subtotal = 0;
 	shopSection.innerHTML = "";
 	shopSection.insertAdjacentHTML("beforeEnd","<h2 class='text-center'>Your Cart</h2>");
+	
+	/* Creates each cart item */
 	for (let i=0; i<cart.length; i++) {
 		let item = "<div class='col-12 element-bottom-margin row justify-content-around'>";
 		item += "<div class='col-3'>";
 		item += "<img src='" + merchandise[cart[i]][2] + "' alt='" + merchandise[cart[i]][4] + "' class='w-100 cart-image'>";
 		item += "</div>";
 		item += "<div class='col-3 text-center'>";
-		item += "<p class='text-white cart-text'>" + merchandise[cart[i]][1]+ "</p>";
+		item += "<p class='text-white shop-text'>" + merchandise[cart[i]][1]+ "</p>";
 		item += "</div>";
 		item += "<div class='col-3 text-center'>";
-		item += "<p class='text-white cart-text'>$" + merchandise[cart[i]][5] + "</p>";
+		item += "<p class='text-white shop-text'>$" + merchandise[cart[i]][5] + "</p>";
+		item += "<button class='btn btn-danger w-100 background-red no-border' type='button' id='remove-item'><i class='bi bi-trash'></i></button>";
 		item += "</div>";
 		item += "</div>";
 		item += "<hr class='cart-hr'>"
@@ -161,6 +187,7 @@ function returnCart() {
 	document.getElementById("see-cart").style.display = "none";
 }
 
+/* Formats currency to two decimal points */
 function formatCurrency(value) {
     return "$" + value.toFixed(2);
 }

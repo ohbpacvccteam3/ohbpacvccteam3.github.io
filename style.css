@@ -42,6 +42,10 @@ nav{ /* Formats the nav */
     margin-top: 5%;
 }
 
+.element-center{
+    align-content: center;
+}
+
     /* Colors */
 .red{ /* Sets text color to red */
     color: #550000;
@@ -97,8 +101,8 @@ nav{ /* Formats the nav */
 	max-width: 20vh;
 }
 
-.cart-text{ /* Sets the font size for text in the cart */
-	font-size: 1.25em;
+.shop-text{ /* Sets the font size for text in the shop */
+	font-size: 1.1em;
 }
 
 .cart-hr{ /* Sets the horizontal rules on the cart page to be gray */
@@ -120,14 +124,24 @@ nav{ /* Formats the nav */
 }
 
 .event-tab{
-    display: none;
+    background-color: #550000;
 }
 
 .event-tab:hover{
     background-color: #770000;
 }
 
+/*
 
+#text-box-container{
+    display: none;
+}
+
+input[type="radio"]:checked + #text-box-container{
+    display: block;
+}
+
+*/
 
 /* Footer Style Rules */
 footer { /* Sets footer background color */
