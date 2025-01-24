@@ -91,6 +91,24 @@ nav{ /* Formats the nav */
     margin-top: 2%;
 }
 
+/* Merch Page Stye Rules */
+.cart-image{ /* Sets size for the images that appear when the cart is opened */
+	max-height: 20vh;
+	max-width: 20vh;
+}
+
+.cart-text{ /* Sets the font size for text in the cart */
+	font-size: 1.25em;
+}
+
+.cart-hr{ /* Sets the horizontal rules on the cart page to be gray */
+	color: gray;
+}
+
+.hidden{ /* Hides element */
+	display: none;
+}
+
 /* Contact Page Style Rules */
 .event-color{
     color: white;
@@ -163,7 +181,6 @@ footer p { /* Sets footer text margins to 0 */
     box-shadow: 0 0 40px 4px  rgba(255, 255, 255, 0.589);
 
 }
-
 
 .modal-footer
 {

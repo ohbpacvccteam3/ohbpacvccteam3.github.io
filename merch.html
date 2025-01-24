@@ -50,6 +50,10 @@
 						</button>
 						<ul class="dropdown-menu">
 							<li>
+								<button type="button" class="dropdown-item" id="clear">Clear All</button>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li>
 								<input type="checkbox" id="sweatshirt-filter" name="sweatshirt" value="sweatshirt" class="dropdown-button mx-3 filter">
 								<label for="sweatshirt-filter">Sweatshirts</label>
 							</li>
@@ -69,6 +73,10 @@
 								<input type="checkbox" id="bag-filter" name="bag" value="bag" class="dropdown-button mx-3 filter">
 								<label for="bag-filter">Bags</label>
 							</li>
+							<li>
+								<input type="checkbox" id="miscellaneous-filter" name="miscellaneous" value="miscellaneous" class="dropdown-button mx-3 filter">
+								<label for="miscellaneous-filter">Miscellaneous</label>
+							</li>
 						 </ul>
 					</div>
 					<div class="col-md-2">
@@ -77,8 +85,38 @@
 				</div>
 				
 				<div class="container">
-					<div class="row justify-content-left element-top-margin element-bottom-margin" id="shop">
+					<div class="row justify-content-around element-top-margin element-bottom-margin" id="shop">
 						
+					</div>
+					<div class="hidden element-bottom-margin w-100" id="checkout">
+						<button type="button" class="btn btn-danger w-100 h-100 background-red no-border" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
+
+						<div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5">Checkout</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<form>
+											<div class="mb-3">
+												<label for="shipping-address" class="col-form-label">Shipping Address:</label>
+												<input type="text" class="form-control" id="shipping-address">
+											</div>
+											<div class="mb-3">
+												<label for="payment" class="col-form-label">Payment</label>
+												<input type="text" class="form-control" placeholder="Enter Card Number" id="payment"></input>
+											</div>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Place Order</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</main>
