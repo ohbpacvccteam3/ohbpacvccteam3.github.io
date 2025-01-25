@@ -16,7 +16,7 @@
 			<nav class="navbar navbar-expand-md sticky-top" data-bs-theme="dark">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a href="index.html"><img src="images/logo-small.png" class="img-fluid"></a>
+						<a href="index.html"><img src="images/logo-small.png" alt="Band Logo; To Home Page" class="img-fluid"></a>
 					</div>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -39,11 +39,10 @@
 			
 			<main class="container-fluid">
 				<div class="row justify-content-around">
-					<div class="col-md-5 element-shadow py-1">
-						<p>Premium American-Made Apparel, Instruments, and More.</p>
+					<div class="col-md-4 element-shadow py-1 vertical-center">
+						<p class="m-0">Premium American-Made Apparel and More.</p>
 					</div>
-					<div class="col-md-1">
-					</div>
+					<div class="col-md-1"></div> <!-- Empty div for formatting -->
 					<div class="col-md-2 dropdown p-0">
 						<button class="btn btn-danger dropdown-toggle w-100 h-100 background-red no-border" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Filters
@@ -66,10 +65,6 @@
 								<label for="hat-filter">Hats</label>
 							</li>
 							<li>
-								<input type="checkbox" id="instrument-filter" name="instrument" value="instrument" class="dropdown-button mx-3 filter">
-								<label for="instrument-filter">Instruments</label>
-							</li>
-							<li>
 								<input type="checkbox" id="bag-filter" name="bag" value="bag" class="dropdown-button mx-3 filter">
 								<label for="bag-filter">Bags</label>
 							</li>
@@ -79,14 +74,14 @@
 							</li>
 						 </ul>
 					</div>
-					<div class="col-md-2">
-						<button class="btn btn-danger w-100 h-100 background-red no-border" type="button" id="see-cart">Your Cart</button>
+					<div class="col-md-2" id="cart-shop-button">
+						<!-- Implemented in JavaScript -->
 					</div>
 				</div>
 				
 				<div class="container">
 					<div class="row justify-content-around element-top-margin element-bottom-margin" id="shop">
-						
+						<!-- Implemented in JavaScript -->
 					</div>
 					<div class="hidden element-bottom-margin w-100" id="checkout">
 						<button type="button" class="btn btn-danger w-100 h-100 background-red no-border" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
@@ -101,8 +96,12 @@
 									<div class="modal-body">
 										<form>
 											<div class="mb-3">
+												<label for="email" class="col-form-label">Email Address:</label>
+												<input type="email" class="form-control" placeholder="example@abc.com" id="email">
+											</div>
+											<div class="mb-3">
 												<label for="shipping-address" class="col-form-label">Shipping Address:</label>
-												<input type="text" class="form-control" id="shipping-address">
+												<input type="text" class="form-control" placeholder="Address, Street, City, State, Postal Code" id="shipping-address">
 											</div>
 											<div class="mb-3">
 												<label for="payment" class="col-form-label">Payment</label>

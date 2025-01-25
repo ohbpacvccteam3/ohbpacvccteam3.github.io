@@ -17,10 +17,6 @@ nav{ /* Formats the nav */
     /* margin-top: 2em; */
 }
 
-.no-border{ /* Removes border around an element */
-	border: none;
-}
-
     /* Elements */
 .element-border{ /* Sets a red border around an element */
     border: 2px solid #550000;
@@ -44,6 +40,16 @@ nav{ /* Formats the nav */
 
 .element-center{
     align-content: center;
+}
+
+.no-border{ /* Removes border around an element */
+	border: none;
+}
+
+.vertical-center{ /* Centers an element vertically */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
     /* Colors */
@@ -95,7 +101,7 @@ nav{ /* Formats the nav */
     margin-top: 2%;
 }
 
-/* Merch Page Stye Rules */
+/* Merch Page Style Rules */
 .cart-image{ /* Sets size for the images that appear when the cart is opened */
 	max-height: 20vh;
 	max-width: 20vh;
@@ -188,7 +194,7 @@ footer p { /* Sets footer text margins to 0 */
 
 .mb-3 input:focus
 {
-    background-color: #ffffff;
+    background-color: #dddddd;
     backdrop-filter: blur(8px);
     border-radius: 40px;
     border: none;

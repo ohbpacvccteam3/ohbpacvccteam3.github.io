@@ -1,9 +1,9 @@
-/* Merch two-dimensional array; Format: itemID, Item Name, Image Link, Category (Filter), Image Description (Alt Text), Price */
+// Merch two-dimensional array; Format: itemID, Item Name, Image Link, Category (Filter), Image Description (Alt Text), Price
 let merchandise = [
-					[0,"Black Hoodie","images/black-hoodie-white-skull.png","sweatshirt","Black hoodie with the band logo in white",25.49],
-					[1,"White Hoodie","images/white-hoodie-black-skull.png","sweatshirt","White hoodie with the band logo in black",25.49],
-					[2,"Black CD Hoodie","images/cd-cover-hoodie.png","sweatshirt","Black hoodie with the cd cover for Tears for Years",25.49],
-					[3,"White Album Hoodie","images/album-cover-hoodie.png","sweatshirt","White hoodie with the album cover for Tears for Years", 25.49],
+					[0,"Black Hoodie","images/black-hoodie-white-skull.png","sweatshirt","Black hoodie with the band logo in white",34.99],
+					[1,"White Hoodie","images/white-hoodie-black-skull.png","sweatshirt","White hoodie with the band logo in black",34.99],
+					[2,"Black CD Hoodie","images/cd-cover-hoodie.png","sweatshirt","Black hoodie with the cd cover for Tears for Years",34.99],
+					[3,"White Album Hoodie","images/album-cover-hoodie.png","sweatshirt","White hoodie with the album cover for Tears for Years", 34.99],
 					[4,"Black Cap","images/black-cap-white-skull.png","hat","Black cap with the band logo in white",14.99],
 					[5,"White Cap","images/white-cap-black-skull.png","hat","White cap with the band logo in black",14.99],
 					[6,"Black Bucket Hat","images/black-bucket-white-skull.png","hat","Black bucket hat with the band logo in white",24.99],
@@ -19,65 +19,74 @@ let merchandise = [
 					[16,"Coasters","images/coasters.png","miscellaneous","Coasters with the band logo",9.99]
 ];
 
-/* Variable declarations */
+// Variable declarations
 let shopSection = document.getElementById("shop");
 let filters = document.getElementsByClassName("filter");
 let cartButtons = document.getElementsByClassName("cart-button");
 let cart = new Array();
 const TAX_RATE = 0.08;
+
+// Runs code upon page load
 window.addEventListener("load", startup);
-document.getElementById("see-cart").addEventListener("click", returnCart);
 
-
-/* Code that runs upon page load */
+// Code that runs upon page load
 function startup() {
-	/* Loads all shop items */
+	// Loads all shop items
 	for (let i=0; i<merchandise.length; i++) {
 		addItemToShop(createItem(merchandise[i][2], merchandise[i][4], merchandise[i][5], merchandise[i][1], merchandise[i][0]));
 	}
+	
+	// Creates the cart button
+	createCartButton();
 
-	/* Provides funcitonality to filters */
+	//Provides funcitonality to filters
 	for (let i=0; i<filters.length; i++) {
 		filters[i].addEventListener("change", applyFilter);
 	}
 	document.getElementById("clear").addEventListener("click", clearFilters);
 
-	/* Provides funcitonality to the cart button on each item */
+	// Provides funcitonality to the cart button on each item
 	for (let i=0; i<cartButtons.length; i++) {
 		createCartEventListeners(cartButtons[i], i);
 	}
 }
 
-/* Provides functionality to cart buttons on every item */
+// Creates the cart button and provides functionality
+function createCartButton() {
+	document.getElementById("cart-shop-button").innerHTML = "<button class='btn btn-danger w-100 h-100 background-red no-border' type='button' id='see-cart'>Your Cart</button>";
+	document.getElementById("see-cart").addEventListener("click", returnCart);
+}
+
+// Provides functionality to cart buttons on every item
 function createCartEventListeners(cartButton, itemID) {	
 	cartButton.addEventListener("click", addItemToCart.bind(null, itemID));
 }
 
-/* Creates an item in the shop) */
+// Creates an item for the shop
 function createItem(itemImage, itemDescription, itemPrice, itemName, itemID) {
 	let item = "<div class='col-md-3 text-center element-top-margin'>";
 	item += "<img src='" + itemImage + "' alt='" + itemDescription + "' class='w-100'>";
 	item += "<div class='row justify-content-around'>";
-	item += "<p class='col-sm-8 m-0 p-1 element-top-margin shop-text'>" + itemName +": $" + itemPrice + "</p>";
-	item += "<div class='btn btn-danger background-red no-border text-white element-top-margin col-sm-3 cart-button' id='" + itemID + "'><i class='bi bi-cart2'></i></div>";
+	item += "<p class='col-sm-8 m-0 p-1 element-top-margin shop-text vertical-center'>" + itemName +": $" + itemPrice + "</p>";
+	item += "<button class='btn btn-danger background-red no-border text-white element-top-margin col-sm-3 cart-button vertical-center' id='" + itemID + "'><i class='bi bi-cart2'></i></button>";
 	item += "</div>";
 	item += "</div>";
 	return item;
 }
 
-/* Adds an item to the shop */
+// Adds an item to the shop
 function addItemToShop(item) {
 	shopSection.insertAdjacentHTML("beforeEnd", item);
 }
 
-/* Applies content filters to shop items */
+// Applies content filters to shop items
 function applyFilter() {
-	document.getElementById("see-cart").style.display = "block";
+	createCartButton();
 	shopSection.innerHTML = "";
 	let checkedFilters = 0;
 	let usedItemIDs = new Array();
 
-	/* Applies filters to shop items */
+	// Applies filters to shop items
 	for (let i=0; i<filters.length; i++) {
 		if (filters[i].checked) {
 			for (let j=0; j<merchandise.length; j++) {
@@ -90,7 +99,7 @@ function applyFilter() {
 		}
 	}
 
-	/* Loads full page if no filters are applied */
+	// Loads full page if no filters are applied
 	if (checkedFilters === 0) {
 		for (let i=0; i<merchandise.length; i++) {
 			addItemToShop(createItem(merchandise[i][2], merchandise[i][4], merchandise[i][5], merchandise[i][1], merchandise[i][0]));
@@ -98,16 +107,16 @@ function applyFilter() {
 		}
 	}
 
-	/* Provides functionality for each cart button */
+	// Provides functionality for each cart button
 	for (let i=0; i<usedItemIDs.length; i++) {
 		createCartEventListeners(cartButtons[i], usedItemIDs[i]);
 	}
 
-	/* Hides the checkout button */
+	// Hides the checkout button
 	document.getElementById("checkout").style.display = "none";
 }
 
-/* Clears all applied filters */
+// Clears all applied filters
 function clearFilters() {
 	for (let i=0; i<filters.length; i++) {
 		filters[i].checked = false;
@@ -115,19 +124,22 @@ function clearFilters() {
 	applyFilter();
 }
 
-/* Adds an item to the cart */
+// Adds an item to the cart
 function addItemToCart(itemID) {
 	cart.push(Number(itemID));
-	console.log(itemID);
 }
 
-/* Creates and formats the cart when the button is pressed */
+// Creates and formats the cart when the button is pressed
 function returnCart() {
 	let subtotal = 0;
 	shopSection.innerHTML = "";
-	shopSection.insertAdjacentHTML("beforeEnd","<h2 class='text-center'>Your Cart</h2>");
+	shopSection.insertAdjacentHTML("beforeEnd","<h2 class='text-center element-bottom-margin'>Your Cart</h2>");
 	
-	/* Creates each cart item */
+	// Creates return to shop button and provides functionality
+	document.getElementById("cart-shop-button").innerHTML = "<button class='btn btn-danger w-100 h-100 background-red no-border' type='button' id='see-shop'>Shop</button>";
+	document.getElementById("see-shop").addEventListener("click",applyFilter);
+	
+	// Creates each cart item
 	for (let i=0; i<cart.length; i++) {
 		let item = "<div class='col-12 element-bottom-margin row justify-content-around'>";
 		item += "<div class='col-3'>";
@@ -138,7 +150,7 @@ function returnCart() {
 		item += "</div>";
 		item += "<div class='col-3 text-center'>";
 		item += "<p class='text-white shop-text'>$" + merchandise[cart[i]][5] + "</p>";
-		item += "<button class='btn btn-danger w-100 background-red no-border' type='button' id='remove-item'><i class='bi bi-trash'></i></button>";
+		item += "<button class='btn btn-danger w-100 background-red no-border remove-item' type='button' id='" + merchandise[cart[i]][0] +"'><i class='bi bi-trash'></i></button>";
 		item += "</div>";
 		item += "</div>";
 		item += "<hr class='cart-hr'>"
@@ -146,35 +158,38 @@ function returnCart() {
 		subtotal += merchandise[cart[i]][5];
 	}
 	
+	// Provides functionality for remove item buttons
+	let removeItemButtons = document.getElementsByClassName("remove-item");
+	for (let i=0; i<removeItemButtons.length; i++) {
+		removeItemButtons[i].addEventListener("click",removeItemFromCart.bind(null,removeItemButtons[i].id));
+	}
+	
 	// Creates the text area for the subtotal
 	let totalCostText = "<div class='col-12 row justify-content-around'>";
-	totalCostText += "<div class='col-0'></div>";
 	totalCostText += "<div class='col-2 text-end'>";
 	totalCostText += "<p class='text-white cart-text'>Subtotal:</p>";
 	totalCostText += "</div>";
-	totalCostText += "<div class='col-1 text-start'>";
+	totalCostText += "<div class='col-2 text-start'>";
 	totalCostText += "<p class='text-white cart-text'>" + formatCurrency(subtotal) + "</p>";
 	totalCostText += "</div>";
 	totalCostText += "</div>";
 	
 	// Creates the text area for the tax
 	totalCostText += "<div class='col-12 row justify-content-around'>";
-	totalCostText += "<div class='col-0'></div>";
 	totalCostText += "<div class='col-2 text-end'>";
 	totalCostText += "<p class='text-white cart-text'>Tax:</p>";
 	totalCostText += "</div>";
-	totalCostText += "<div class='col-1 text-start'>";
+	totalCostText += "<div class='col-2 text-start'>";
 	totalCostText += "<p class='text-white cart-text'>" + formatCurrency(subtotal*TAX_RATE) + "</p>";
 	totalCostText += "</div>";
 	totalCostText += "</div>";
 	
 	// Creates the area for the total
 	totalCostText += "<div class='col-12 row justify-content-around'>";
-	totalCostText += "<div class='col-0'></div>";
 	totalCostText += "<div class='col-2 text-end'>";
 	totalCostText += "<p class='text-white cart-text'>Total:</p>";
 	totalCostText += "</div>";
-	totalCostText += "<div class='col-1 text-start'>";
+	totalCostText += "<div class='col-2 text-start'>";
 	totalCostText += "<p class='text-white cart-text'>" + formatCurrency(subtotal*TAX_RATE+subtotal) + "</p>";
 	totalCostText += "</div>";
 	totalCostText += "</div>";
@@ -184,10 +199,15 @@ function returnCart() {
 	
 	// Shows the checkout button
 	document.getElementById("checkout").style.display = "block";
-	document.getElementById("see-cart").style.display = "none";
 }
 
-/* Formats currency to two decimal points */
+// Removes an item from the cart
+function removeItemFromCart(itemID){
+	cart.splice(cart.indexOf(Number(itemID)),1);
+	returnCart();
+}
+
+// Formats currency to two decimal points
 function formatCurrency(value) {
     return "$" + value.toFixed(2);
 }
