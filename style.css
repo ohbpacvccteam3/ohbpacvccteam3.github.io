@@ -120,20 +120,19 @@ nav{ /* Formats the nav */
 }
 
 /* Contact Page Style Rules */
-.event-color{
-    color: white;
-}
-
-.event-color:hover{
-    background-color: #770000;
-    color: white;
-}
-
-.event-tab{
+.contact-dropdown{
     background-color: #550000;
 }
 
-.event-tab:hover{
+.contact-dropdown:hover{
+    background-color: #770000;
+}
+
+.contact-tab{
+    background-color: #550000;
+}
+
+.contact-tab:hover{
     background-color: #770000;
 }
 
