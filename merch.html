@@ -9,6 +9,9 @@
 		<link rel="stylesheet" href="style.css">
 		<script src="scripts/merchandise.js" defer></script>
 		<link rel="shortcut icon" type="image/x-icon" href="images/logo.png">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<div class="container-fluid px-0 text-white main-div">
@@ -26,7 +29,7 @@
 							<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
 							<li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
 							<li class="nav-item"><a href="schedule.html" class="nav-link">Tour Dates</a></li>
-							<li class="nav-item"><a href="merch.html" class="nav-link" style="color:#770000; font-weight: 900;">Merchandise</a></li>
+							<li class="nav-item"><a href="merch.html" class="nav-link" id="current-page">Merchandise</a></li>
 							<li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
 						</ul>
 					</div>
@@ -34,7 +37,7 @@
 			</nav>
 			
 			<header>
-				<h1 class="text-center page-header red display-1">Merchandise</h1>
+				<h1 class="text-center page-header text-white display-1">Merchandise</h1>
 			</header>
 			
 			<main class="container-fluid">
@@ -44,7 +47,7 @@
 					</div>
 					<div class="col-md-1"></div> <!-- Empty div for formatting -->
 					<div class="col-md-2 dropdown p-0">
-						<button class="btn btn-danger dropdown-toggle w-100 h-100 background-red no-border" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<button class="btn btn-danger dropdown-toggle w-100 h-100 background-red no-border btn-font" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Filters
 						</button>
 						<ul class="dropdown-menu">
@@ -84,7 +87,7 @@
 						<!-- Implemented in JavaScript -->
 					</div>
 					<div class="hidden element-bottom-margin w-100" id="checkout">
-						<button type="button" class="btn btn-danger w-100 h-100 background-red no-border" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
+						<button type="button" class="btn btn-danger w-100 h-100 background-red no-border btn-font" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
 
 						<div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
 							<div class="modal-dialog">

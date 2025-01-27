@@ -12,18 +12,22 @@ nav{ /* Formats the nav */
     border-bottom: 1px solid #4e4e4e;
 }
 
+#current-page {
+    color: white;
+    font-weight: 900;
+}
+
 .page-header{ /* Formats the header/title at the top of each page */
     font-family: Georgia, Arial, sans-serif;
-    /* margin-top: 2em; */
 }
 
     /* Elements */
 .element-border{ /* Sets a red border around an element */
-    border: 2px solid #550000;
+    border: 2px solid #700000;
 }
 
 .element-shadow{ /* Creates a red shadow around an element */
-    box-shadow: 0px 0px 5px 10px #550000;
+    box-shadow: 0px 0px 5px 10px #700000;
 }
 
 .element-top-margin{ /* Creates a small top margin for element */
@@ -38,7 +42,7 @@ nav{ /* Formats the nav */
     margin-top: 5%;
 }
 
-.element-center{
+.element-center{ /* Centers an element */
     align-content: center;
 }
 
@@ -53,12 +57,9 @@ nav{ /* Formats the nav */
 }
 
     /* Colors */
-.red{ /* Sets text color to red */
-    color: #550000;
-}
 
-.background-red{
-    background: #550000;
+.background-red{ /* Sets element background to red */
+    background: #700000;
 }
     
     /* Text */
@@ -68,7 +69,7 @@ nav{ /* Formats the nav */
 
 	/* Buttons */
 .btn:hover{ /* Sets buttons to a lighter shade upon hover */
-	background-color: #770000;
+	background-color: #880000;
 }
 
 /*Sets font color of nav link to white and apply transition effects*/
@@ -76,15 +77,16 @@ nav{ /* Formats the nav */
 {
     color: #ffffff;
     font-weight: normal;
-    transition: color 0.2s, font-weight 0.2s, font-size 0.2s;
+    transition: color 0.2s, font-weight 0.2s, font-size 0.2s, text-decoration 0.2s;
 }
 
 /*nav links turn red when hovered and transition effects are applied*/
 .navbar-nav li a:hover
 {
-    color: #770000;
+    /* color: #880000; */
     font-weight: 900;
     font-size: 1.01em;
+    text-decoration: underline, #880000;
 }
 
 /* Index Page Style Rules */
@@ -94,6 +96,11 @@ nav{ /* Formats the nav */
     height: 60vh;
     line-height: 60vh;
     padding-top: 3em;
+    font-weight: bold;
+}
+
+.bold{
+    font-weight: bold;
 }
 
 /* About Page Style Rules */
@@ -121,32 +128,20 @@ nav{ /* Formats the nav */
 
 /* Contact Page Style Rules */
 .contact-dropdown{
-    background-color: #550000;
+    background-color: #700000;
 }
 
 .contact-dropdown:hover{
-    background-color: #770000;
+    background-color: #880000;
 }
 
 .contact-tab{
-    background-color: #550000;
+    background-color: #700000;
 }
 
 .contact-tab:hover{
-    background-color: #770000;
+    background-color: #880000;
 }
-
-/*
-
-#text-box-container{
-    display: none;
-}
-
-input[type="radio"]:checked + #text-box-container{
-    display: block;
-}
-
-*/
 
 /* Footer Style Rules */
 footer { /* Sets footer background color */
@@ -210,4 +205,18 @@ footer p { /* Sets footer text margins to 0 */
 {
     border-radius: 40px;
     border: none;
+}
+
+/*Font*/
+p, h2, h3, button, .btn-font, th, td{ /* Sets font for text */
+    font-family: "Signika", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "GRAD" 0;
+}
+
+@media (max-width: 381.98px){
+    .padding-mobile{
+        padding-bottom: 50px;
+    }
 }

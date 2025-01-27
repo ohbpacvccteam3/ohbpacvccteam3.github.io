@@ -53,7 +53,7 @@ function startup() {
 
 // Creates the cart button and provides functionality
 function createCartButton() {
-	document.getElementById("cart-shop-button").innerHTML = "<button class='btn btn-danger w-100 h-100 background-red no-border' type='button' id='see-cart'>Your Cart</button>";
+	document.getElementById("cart-shop-button").innerHTML = "<button class='btn btn-danger w-100 h-100 background-red no-border btn-font' type='button' id='see-cart'>Your Cart</button>";
 	document.getElementById("see-cart").addEventListener("click", returnCart);
 }
 
@@ -136,7 +136,7 @@ function returnCart() {
 	shopSection.insertAdjacentHTML("beforeEnd","<h2 class='text-center element-bottom-margin'>Your Cart</h2>");
 	
 	// Creates return to shop button and provides functionality
-	document.getElementById("cart-shop-button").innerHTML = "<button class='btn btn-danger w-100 h-100 background-red no-border' type='button' id='see-shop'>Shop</button>";
+	document.getElementById("cart-shop-button").innerHTML = "<button class='btn btn-danger w-100 h-100 background-red no-border btn-font' type='button' id='see-shop'>Shop</button>";
 	document.getElementById("see-shop").addEventListener("click",applyFilter);
 	
 	// Creates each cart item
